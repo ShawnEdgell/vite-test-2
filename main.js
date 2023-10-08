@@ -18,8 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
       saveTodos();
     }
   }
+  
 
   addTodoBtn.addEventListener("click", addTask);
+  addTodoBtn.addEventListener("touchstart", addTask);
+
 
   todoInput.addEventListener("keyup", function (e) {
     if (e.key === "Enter") {
