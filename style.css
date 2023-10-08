@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'shrikhand';
+  src: url('src/shrikhand-regular-webfont.woff2') format('woff2'),
+       url('src/shrikhand-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Custom styling if needed */
 
 body {
@@ -16,6 +24,11 @@ body {
   justify-content: space-evenly;
   overflow: hidden;
   position: relative;
+}
+
+h1 {
+  font-family: 'shrikhand', sans-serif;
+  color: #FF1493; /* Pink color */
 }
 
 body::before,
