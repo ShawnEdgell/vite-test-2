@@ -45,7 +45,6 @@ body::after {
   animation: morph 15s linear infinite alternate, spin 20s linear infinite;
   z-index: 1;
   will-change: border-radius, transform;
-  transform-origin: 55% 55%;
   pointer-events: none;
 }
 
@@ -165,20 +164,15 @@ body::after {
   align-items: center;
 }
 
-#priorityInput {
-  margin-left: 10px;
-}
-
 /* Adjust the Add button */
 #addTodo {
-  margin-left: 10px;
   flex-shrink: 0; /* Prevent the button from shrinking */
   border-radius: 5px; /* Add rounded corners */
   padding: 5px 10px; /* Add padding to the button */
 }
 
 small {
-  margin-right: 5px; /* Reduce space to the right of the date */
+  margin: 0 5px; /* Reduce space to the right of the date */
 }
 
 .edit-btn {
