@@ -18,11 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
       saveTodos();
     }
   }
-  
 
   addTodoBtn.addEventListener("click", addTask);
-  addTodoBtn.addEventListener("touchstart", addTask);
-
 
   todoInput.addEventListener("keyup", function (e) {
     if (e.key === "Enter") {
@@ -53,53 +50,35 @@ document.addEventListener("DOMContentLoaded", function () {
     listItem.setAttribute("data-id", task.id);
     listItem.innerHTML = `
       <div class="d-flex align-items-center w-100">
-        <span class="todo-label flex-grow-1">${task.text}</span>
-        <div class="d-flex align-items-center ml-auto"> <!-- Use ml-auto to push content to the right -->
+        <span class="todo-label flex-grow-1" contenteditable="true">${task.text}</span>
+        <div class="d-flex align-items-center">
           <small>${task.date}</small>
-          <button class="btn btn-primary btn-sm ml-1 edit-btn">Edit</button>
           <button class="btn btn-danger btn-sm ml-1 delete-btn">X</button>
         </div>
       </div>`;
     todoList.appendChild(listItem);
+
+    // Listen for the blur event to save changes when the user clicks away
+    const todoLabel = listItem.querySelector(".todo-label");
+    todoLabel.addEventListener("blur", function () {
+      task.text = todoLabel.textContent;
+      saveTodos();
+    });
+
+    // Finish editing by pressing Enter
+    todoLabel.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        todoLabel.blur();
+      }
+    });
+
+    // Delete task when the delete button is clicked
+    const deleteButton = listItem.querySelector(".delete-btn");
+    deleteButton.addEventListener("click", function () {
+      listItem.remove();
+      saveTodos();
+    });
   }
-
-  todoList.addEventListener("click", function (e) {
-    const taskElement = e.target.closest(".task");
-    if (taskElement) {
-      if (e.target.classList.contains("delete-btn")) {
-        taskElement.remove();
-        saveTodos();
-      }
-
-      if (e.target.classList.contains("edit-btn")) {
-        const label = taskElement.querySelector(".todo-label");
-        const editInput = document.createElement("input");
-        editInput.classList.add("form-control");
-        editInput.value = label.textContent;
-        const editButton = e.target;
-
-        if (editButton.textContent === "Edit") {
-          label.classList.add("d-none");
-          label.style.maxWidth = "none";
-          editInput.style.width = "100%";
-          editInput.addEventListener("keyup", function (event) {
-            if (event.key === "Enter") {
-              label.textContent = editInput.value;
-              label.classList.remove("d-none");
-              label.style.maxWidth = "calc(100% - 90px)";
-              editInput.remove();
-              editButton.textContent = "Edit";
-              saveTodos();
-            }
-          });
-
-          taskElement.insertBefore(editInput, taskElement.childNodes[0]);
-          editInput.focus();
-          editButton.textContent = "Save";
-        }
-      }
-    }
-  });
 
   function saveTodos() {
     const todosToSave = [];
