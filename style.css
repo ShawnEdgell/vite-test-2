@@ -1,5 +1,55 @@
+/* Custom styling if needed */
 body {
-  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
 }
 
-/* Additional styles */
+.container {
+  max-width: 600px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.delete-btn {
+  background-color: #ff4b5c;
+}
+
+.priority-high {
+  background-color: #FFA726; /* Orangeish for high priority */
+}
+
+.priority-medium {
+  background-color: #FFD54F; /* Yellowish for medium priority */
+}
+
+.priority-low {
+  background-color: #A5D6A7; /* Greenish for low priority */
+}
+
+/* Other styles */
+.task {
+  margin-bottom: 10px; /* Add some spacing between tasks */
+  padding: 10px; /* Add padding for better spacing */
+  display: flex;
+  justify-content: space-between; /* Distribute space evenly between child elements */
+  align-items: center; /* Center vertically */
+}
+
+.todo-label {
+  word-break: break-word;
+  padding-right: 4%;
+}
+
+small {
+  margin-right: 5px; /* Reduce space to the right of the date */
+}
+
+.edit-btn {
+  margin-right: 5px; /* Reduce space to the right of the edit button */
+}
+
+.delete-btn {
+  margin-left: 5px; /* Reduce space to the left of the remove button */
+}
