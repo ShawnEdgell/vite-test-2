@@ -17,11 +17,9 @@ body {
   -webkit-animation: Gradient 15s ease infinite;
   -moz-animation: Gradient 15s ease infinite;
   animation: Gradient 15s ease infinite;
-  min-height: calc(100vh - 2rem);
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
   position: relative;
   padding: 0 20px;
@@ -113,7 +111,6 @@ body::after {
 
 .container {
   max-width: 600px;
-  margin: 0 4%;
   background-color: #ffffff;
   padding: 20px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -155,12 +152,21 @@ body::after {
   padding-right: 4%;
 }
 
+#addTodo {
+  height: 100%;
+}
+
+#todoInput {
+  border-radius: 5px;
+}
+
 /* Add spacing to user input section */
 .user-input {
-  margin-bottom: 20px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
+  gap: 5px;
+}
+
+#priorityInput {
+  margin-right: 2px;  /* or padding-top: 20px; */
 }
 
 /* Adjust the Add button */
@@ -174,10 +180,56 @@ small {
   margin: 0 5px; /* Reduce space to the right of the date */
 }
 
-.edit-btn {
-  margin-right: 5px; /* Reduce space to the right of the edit button */
-}
-
 .delete-btn {
   margin-left: 5px; /* Reduce space to the left of the remove button */
+}
+
+.position-fixed {
+  left: auto;
+  scale: 150%;
+  right: 10px;  /* Adjust this to give some space from the right edge */
+  top: 10px;    /* Adjust this to give some space from the top edge */
+  z-index: 1030; /* Ensure it's on top of most elements */
+}
+
+.dark-mode .container {
+  background-color: #2a2a2a; /* Darker container background */
+}
+
+.dark-mode h1 {
+  color: #FFB6C1; /* Lighter pink for dark mode */
+}
+
+.dark-mode .btn-primary {
+  background-color: #1976D2;
+  border-color: #1976D2;
+}
+
+.dark-mode .custom-control-label::before {
+  background-color: #555; /* Dark mode background for the toggle switch */
+}
+
+.dark-mode .priority-high {
+  background-color: #FF9800; /* Adjusted color for high priority in dark mode */
+}
+
+.dark-mode .priority-medium {
+  background-color: #FFEB3B; /* Adjusted color for medium priority in dark mode */
+}
+
+.dark-mode .priority-low {
+  background-color: #8BC34A; /* Adjusted color for low priority in dark mode */
+}
+
+body.dark-mode {
+  /* ... other properties ... */
+  background: -moz-linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
+  background: -webkit-linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
+  background: linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
+}
+
+
+.dark-mode body::before,
+.dark-mode body::after {
+  background: rgba(255, 255, 255, 0.04); /* Making it more subtle */
 }
