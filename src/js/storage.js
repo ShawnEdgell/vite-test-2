@@ -5,5 +5,6 @@ export function saveTodos(todos) {
 }
 
 export function loadTodos() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    const rawData = localStorage.getItem(STORAGE_KEY);
+    return rawData ? JSON.parse(rawData) : [];
 }

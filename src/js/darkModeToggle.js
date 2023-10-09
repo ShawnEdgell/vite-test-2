@@ -1,19 +1,20 @@
+const DARK_MODE_STORAGE_KEY = "darkMode";
+
 export function initDarkModeToggle() {
     const darkModeToggle = document.getElementById("darkModeToggle");
     const bodyElem = document.body;
 
-    // Function to toggle dark mode
     function toggleDarkMode() {
-        bodyElem.classList.toggle('dark-mode');
+        const isDarkMode = bodyElem.classList.toggle('dark-mode');
+        localStorage.setItem(DARK_MODE_STORAGE_KEY, isDarkMode);
     }
 
-    // Event listener for dark mode toggle
-    darkModeToggle.addEventListener('change', function() {
-        toggleDarkMode();
-    });
+    darkModeToggle.addEventListener('change', toggleDarkMode);
 
-    // If the page loads and dark mode was previously set, adjust the switch
-    if (bodyElem.classList.contains('dark-mode')) {
+    // Initial state setup from local storage
+    const savedDarkMode = localStorage.getItem(DARK_MODE_STORAGE_KEY);
+    if (savedDarkMode === "true") {
+        bodyElem.classList.add('dark-mode');
         darkModeToggle.checked = true;
     }
 }

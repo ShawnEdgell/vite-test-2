@@ -1,7 +1,7 @@
 import { getElem } from './domUtils';
 import { createTodoElement } from './todoUtils';
 import { saveTodos, loadTodos } from './storage';
-import { initDarkModeToggle } from './darkModeToggle'; 
+import { initDarkModeToggle } from './darkModeToggle';
 
 document.addEventListener("DOMContentLoaded", function () {
     const todoInput = getElem("todoInput");

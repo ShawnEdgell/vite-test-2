@@ -192,6 +192,7 @@ small {
   z-index: 1030; /* Ensure it's on top of most elements */
 }
 
+
 .dark-mode .container {
   background-color: #2a2a2a; /* Darker container background */
 }
@@ -222,12 +223,10 @@ small {
 }
 
 body.dark-mode {
-  /* ... other properties ... */
   background: -moz-linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
   background: -webkit-linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
   background: linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
 }
-
 
 .dark-mode body::before,
 .dark-mode body::after {
