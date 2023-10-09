@@ -6,14 +6,14 @@ export function initDarkModeToggle() {
 
     function toggleDarkMode() {
         const isDarkMode = bodyElem.classList.toggle('dark-mode');
-        localStorage.setItem(DARK_MODE_STORAGE_KEY, isDarkMode);
+        localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(isDarkMode));
     }
 
     darkModeToggle.addEventListener('change', toggleDarkMode);
 
     // Initial state setup from local storage
-    const savedDarkMode = localStorage.getItem(DARK_MODE_STORAGE_KEY);
-    if (savedDarkMode === "true") {
+    const savedDarkMode = JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY));
+    if (savedDarkMode === true) {
         bodyElem.classList.add('dark-mode');
         darkModeToggle.checked = true;
     }

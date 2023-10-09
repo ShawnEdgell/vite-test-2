@@ -1,7 +1,7 @@
 import { getElem } from './domUtils';
 import { createTodoElement } from './todoUtils';
 import { saveTodos, loadTodos } from './storage';
-import { initDarkModeToggle } from './darkModeToggle';
+import { initDarkModeToggle } from './darkModeToggle'; 
 
 document.addEventListener("DOMContentLoaded", function () {
     const todoInput = getElem("todoInput");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const listItem = createTodoElement(task);
             todoList.appendChild(listItem);
-
+            
             todoInput.value = "";
             saveTodos(getAllTodosFromDOM());
         }
@@ -58,6 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
         todoList.appendChild(listItem);
     });
 
-    // Initialize the dark mode toggle
-    initDarkModeToggle();
+    // Initialize dark mode toggle
+    initDarkModeToggle(); // Place it here
 });

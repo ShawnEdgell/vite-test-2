@@ -185,17 +185,29 @@ small {
   margin-left: 5px; /* Reduce space to the left of the remove button */
 }
 
-.position-fixed {
-  left: auto;
-  scale: 150%;
-  right: 10px;  /* Adjust this to give some space from the right edge */
-  top: 10px;    /* Adjust this to give some space from the top edge */
-  z-index: 1030; /* Ensure it's on top of most elements */
+/* Custom styling for the Bootstrap custom switch */
+.custom-control-label::before {
+    background-color: #007bff; /* Color for the slider knob when active */
+    border: none; /* Remove border around the slider knob */
+    border-radius: 50%; /* Make the slider knob circular */
 }
 
+/* Styling for the label text */
+.custom-control-label {
+    font-weight: bold; /* Make the label text bold */
+    color: #007bff; /* Text color for the label */
+}
 
-.dark-mode .container {
-  background-color: #2a2a2a; /* Darker container background */
+/* Dark mode styles */
+body.dark-mode {
+  background: -moz-linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
+  background: -webkit-linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
+  background: linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
+}
+
+.dark-mode body::before,
+.dark-mode body::after {
+  background: rgba(255, 255, 255, 0.04); /* Making it more subtle */
 }
 
 .dark-mode h1 {
@@ -207,8 +219,10 @@ small {
   border-color: #1976D2;
 }
 
-.dark-mode .custom-control-label::before {
-  background-color: #555; /* Dark mode background for the toggle switch */
+/* Style for the toggle switch in "light" mode */
+.custom-switch .custom-control-label::before {
+  border: 1px solid #ccc; /* Add a border to the toggle switch in "light" mode */
+  background-color: #fff; /* Change to the desired color when the slider is off */
 }
 
 .dark-mode .priority-high {
@@ -223,13 +237,19 @@ small {
   background-color: #8BC34A; /* Adjusted color for low priority in dark mode */
 }
 
-body.dark-mode {
-  background: -moz-linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
-  background: -webkit-linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
-  background: linear-gradient(45deg, #014a4a 0%, #013463 29%, #45046a 66%, #7a320f 100%);
+.dark-mode .container {
+  background-color: #2a2a2a; /* Darker container background */
 }
 
-.dark-mode body::before,
-.dark-mode body::after {
-  background: rgba(255, 255, 255, 0.04); /* Making it more subtle */
+/* Increase the size of the dark mode toggle button */
+.custom-control-label{
+  scale: 150%
+}
+
+/* Position the dark mode toggle button at the top right corner */
+.position-absolute {
+  position: absolute;
+  top: 10px; /* Adjust the top spacing as needed */
+  right: 10px; /* Adjust the right spacing as needed */
+  z-index: 1030; /* Ensure it's on top of most elements */
 }
